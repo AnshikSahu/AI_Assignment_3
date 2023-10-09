@@ -73,7 +73,7 @@ int main(int argc, char *argv[]){
             }
             for(k=0;k<n;k++){
                 if(k>i){
-                    clauses.push_back(temp1+" "+to_string(k*k1+i+1)+" 0");
+                    clauses.push_back(temp1+" "+to_string(k*k1+j+1)+" 0");
                 }
             }
             for(k=0;k<k2;k++){
@@ -91,7 +91,7 @@ int main(int argc, char *argv[]){
             }
             for(k=0;k<n;k++){
                 if(k>i){
-                    clauses.push_back(temp2+" "+to_string(k1*n+k*k2+i+1)+" 0");
+                    clauses.push_back(temp2+" "+to_string(k1*n+k*k2+j+1)+" 0");
                 }
             }
             for(k=0;k<k2;k++){
@@ -103,7 +103,7 @@ int main(int argc, char *argv[]){
     // Connectivity
     for(i=0;i<n;i++){
         for(j=0;j<n;j++){
-            if((find(adj[i].begin(),adj[i].end(),j)==adj[j].end()) & (j>i)){
+            if((find(adj[i].begin(),adj[i].end(),j)==adj[i].end()) & (i!=j)){
                 for(k=0;k<k1;k++){
                     for(int l=0;l<k1;l++){
                         if(l>k){
