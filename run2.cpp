@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
     }
     getline(inputFile2,line);
     //get list from line
-    int output[n*k1+k2*n];
+    int output[n*k1+n*2];
     int index=0;
     string temp="";
     for(i=0;i<line.length();i++){
@@ -36,21 +36,20 @@ int main(int argc, char *argv[]) {
         else{
             temp+=line[i];
         }
+        if(index==n*k1+n*2){
+            break;
+        }
     }
     outputFile<<"#1\n";
     for(i=0;i<n;i++){
-        for(j=0;j<k1;j++){
-            if(output[i*k1+j]<0){
-                outputFile<<i+1<<" ";
-            }
+        if(output[i]<0){
+            outputFile<<i+1<<" ";
         }
     }
     outputFile<<"\n#2\n";
     for(i=0;i<n;i++){
-        for(j=0;j<k2;j++){
-            if(output[i*k2+j+n*k1]<0){
-                outputFile<<i+1<<" ";
-            }
+        if(output[i+n+k1*n]<0){
+            outputFile<<i+1<<" ";
         }
     }  
     outputFile.close();
